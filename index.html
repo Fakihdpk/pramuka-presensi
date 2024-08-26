@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pramuka Attendance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Pramuka Attendance</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#checkin">Check-In</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#profile">Profile</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Welcome, Scout!</h2>
+            <p>Track your attendance and stay connected with your Pramuka activities.</p>
+            <button class="btn-checkin" onclick="showCheckinForm()">Check-In</button>
+        </section>
+    
+        <section id="checkin" style="display: none;">
+            <h2>Check-In Form</h2>
+            <form id="attendance-form" onsubmit="submitForm(event)">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="date">Date:</label><br>
+                <input type="date" id="date" name="date" required><br><br>
+                <button type="submit" class="btn-checkin">Submit</button>
+            </form>
+        </section
+        
+        
+        <section id="history">
+            <h2>Attendance History</h2>
+            <ul class="attendance-list">
+                <li>July 12, 2024 - Present</li>
+                <li>July 11, 2024 - Absent</li>
+                <li>July 10, 2024 - Present</li>
+                <!-- Add more attendance records as needed -->
+            </ul>
+        </section>
+
+        <section id="profile">
+            <h2>Your Profile</h2>
+            <p>Scout Name: John Doe</p>
+            <p>Total Attendance: 20 Days</p>
+            <p>Badges Earned: 5</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Pramuka Organization</p>
+    </footer>
+</body>
+</html>
