@@ -60,5 +60,42 @@
     <footer>
         <p>&copy; 2024 Pramuka Organization</p>
     </footer>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwSOavU_mekewLbMR54jns1o6kApnyXMxpg_MYzhsocSkDeMx-D2u6y7tfoSFIP4MEp/exec'; // Ganti dengan URL Web App Google Apps Script Anda
+    
+        function showCheckinForm() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('checkin').style.display = 'block';
+        }
+    
+        function submitForm(event) {
+            event.preventDefault();
+            const form = document.getElementById('attendance-form');
+            const data = new FormData(form);
+            const jsonData = {
+                name: data.get('name'),
+                date: data.get('date')
+            };
+    
+            fetch(scriptURL, {
+                method: 'POST',
+                body: JSON.stringify(jsonData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Presensi berhasil dikirim!");
+                    form.reset();
+                    document.getElementById('home').style.display = 'block';
+                    document.getElementById('checkin').style.display = 'none';
+                } else {
+                    alert("Terjadi kesalahan, silakan coba lagi.");
+                }
+            })
+            .catch(error => console.error('Error!', error.message));
+        }
+    </script>
 </body>
 </html>
